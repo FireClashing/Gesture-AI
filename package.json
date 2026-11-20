@@ -1,0 +1,38 @@
+{
+  "name": "signa",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run test:ts && npm run test:py",
+    "test:ts": "node --experimental-strip-types --test \"tests/ts/*.test.ts\"",
+    "test:py": "python -m unittest discover -s ml/tests -t .",
+    "api": "python -m uvicorn api:app --app-dir ml --port 8000",
+    "train": "python ml/train.py",
+    "train:sequence": "python ml/train_sequence.py",
+    "setup:assets": "node scripts/setup-mediapipe-assets.mjs",
+    "postinstall": "node scripts/setup-mediapipe-assets.mjs --quiet",
+    "generate:voice": "python scripts/generate_voice_clips.py"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "1.2.3",
+    "next": "16.4.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "4.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.4.6",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5"
+  },
+  "description": "Indian Sign Language (ISL) gesture recognition workspace: MediaPipe hand tracking, in-browser or FastAPI inference, EN/HI subtitles."
+}

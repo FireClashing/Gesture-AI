@@ -1,0 +1,8 @@
+{
+  "inputFormat": "canonical_hands_v2",
+  "landmarksPerHand": 21,
+  "axes": ["x", "y", "z"],
+  "slots": ["a", "b"],
+  "featureCount": 128,
+  "description": "Two hand slots (a, b) of 63 wrist-relative, scale-normalised landmark values each, followed by 2 presence flags. Hands labelled 'Left' are mirrored (x negated) so every hand looks like a right hand. With two hands, slot a is the hand whose wrist has the smaller image x."
+}

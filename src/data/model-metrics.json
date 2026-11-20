@@ -1,0 +1,102 @@
+{
+  "generatedAt": "2026-11-19T03:58:32+00:00",
+  "inputFormat": "canonical_hands_v2",
+  "featureCount": 128,
+  "handsSupported": 2,
+  "datasetFiles": [
+    "isl_alphabet_dataset.csv"
+  ],
+  "samples": {
+    "raw": 343,
+    "invalid": 0,
+    "used": 213
+  },
+  "labels": [
+    "L",
+    "V"
+  ],
+  "labelCounts": {
+    "L": 108,
+    "V": 105
+  },
+  "signers": 1,
+  "sessions": 3,
+  "evaluation": {
+    "strategy": "leave-one-session-out",
+    "groups": 3,
+    "candidates": [
+      {
+        "name": "mlp",
+        "accuracy": 0.9624,
+        "macroF1": 0.9624,
+        "folds": 3,
+        "exportable": true
+      },
+      {
+        "name": "logreg",
+        "accuracy": 0.9577,
+        "macroF1": 0.9577,
+        "folds": 3,
+        "exportable": true
+      },
+      {
+        "name": "svm",
+        "accuracy": 0.9812,
+        "macroF1": 0.9812,
+        "folds": 3,
+        "exportable": false
+      },
+      {
+        "name": "random_forest",
+        "accuracy": 0.9906,
+        "macroF1": 0.9906,
+        "folds": 3,
+        "exportable": false
+      }
+    ],
+    "selected": "mlp",
+    "accuracy": 0.9624,
+    "macroF1": 0.9624,
+    "perClass": [
+      {
+        "label": "L",
+        "precision": 0.963,
+        "recall": 0.963,
+        "f1": 0.963,
+        "support": 108
+      },
+      {
+        "label": "V",
+        "precision": 0.9619,
+        "recall": 0.9619,
+        "f1": 0.9619,
+        "support": 105
+      }
+    ],
+    "confusion": {
+      "labels": [
+        "L",
+        "V"
+      ],
+      "matrix": [
+        [
+          104,
+          4
+        ],
+        [
+          4,
+          101
+        ]
+      ]
+    }
+  },
+  "deployment": {
+    "api": "gesture_model.joblib",
+    "browser": "gesture-model.json"
+  },
+  "warnings": [
+    "Only 2 of 26 alphabet letters have data (L, V). The model can never output the other 24 letters until they are collected.",
+    "Only one (or no recorded) signer. Results measure generalisation across capture sessions, not across people. Record a signer name in the Training Studio and collect several people.",
+    "With only two classes, chance accuracy is 50%; treat the numbers as a smoke test, not a benchmark."
+  ]
+}
